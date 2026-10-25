@@ -44,7 +44,7 @@ cd skills
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
 .venv/bin/python scripts/validate_skill.py
-npx skills@1 add . --list
+npx skills add . --list
 ```
 
 结构检查会遍历全部技能，核对名称、元数据和内部引用。它不能判断讲解或工作流程是否有效：行为变化需要使用对应试用材料，让 Agent 生成实际回复或完成受控任务，再检查结果。脚本变化还应验证真实的输入、输出及失败情况。

@@ -22,19 +22,19 @@
 
 ```sh
 # 查看技能目录
-npx skills@1 add wilsonwangdev/skills --list
+npx skills add wilsonwangdev/skills --list
 
 # 交互选择技能、目标 Agent 和安装范围
-npx skills@1 add wilsonwangdev/skills
+npx skills add wilsonwangdev/skills
 
 # 用户级安装，可跨项目使用
-npx skills@1 add wilsonwangdev/skills -g
+npx skills add wilsonwangdev/skills -g
 
 # 只安装一项技能
-npx skills@1 add wilsonwangdev/skills --skill learn-from-agent-conversations
+npx skills add wilsonwangdev/skills --skill learn-from-agent-conversations
 
 # 明确选择多个目标客户端
-npx skills@1 add wilsonwangdev/skills -a codex claude-code cursor
+npx skills add wilsonwangdev/skills -a codex claude-code cursor
 ```
 
 每项技能的 `SKILL.md` 都说明适用场景。安装后可按客户端的方式选择技能，支持自动选择的客户端也可在请求匹配时使用它。没有技能发现机制的环境，可以将对应 `SKILL.md` 作为指令参考；手动安装文件夹时应保留其相对引用。
@@ -45,13 +45,13 @@ GitHub 仓库是维护源，安装器保存的是本地副本。修改仓库后�
 
 ```sh
 # 查看用户级安装
-npx skills@1 list -g
+npx skills list -g
 
 # 按名称更新已安装技能；这里以学习技能为例
-npx skills@1 update learn-from-agent-conversations -g
+npx skills update learn-from-agent-conversations -g
 
 # 更新当前项目中的同名技能
-npx skills@1 update learn-from-agent-conversations -p
+npx skills update learn-from-agent-conversations -p
 ```
 
 本仓库验证的安装器 1.7.4 版本中，`check` 与 `update` 进入同一更新流程，可能重装有变化的技能。升级前可在 GitHub 查看提交差异；安装器后续行为以其实际版本为准。
