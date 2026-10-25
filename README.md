@@ -1,96 +1,82 @@
 # Skills
 
-可分享、可通过 GitHub 维护的 Agent Skills。每项技能使用独立的 `SKILL.md`，核心内容不绑定特定模型、编辑器或文档服务。
+个人日常使用、持续打磨并公开分享的 Agent 技能库。从实际工作和对话中提炼可复用的做法，逐步积累工程、学习、写作等场景的独立技能。
 
-## 从 Agent 对话中学习
+每项技能解决一个明确问题，可以单独安装，也可以在任务中按需组合。仓库负责维护和分发；具体项目的业务背景、账户信息和本机配置保留在使用环境中。
 
-[learn-from-agent-conversations](skills/learn-from-agent-conversations/SKILL.md) 用于处理对话中的理解障碍：当用户对 Agent 已经给出的解释、方案、结论或代码提出疑问时，围绕那个具体卡点，用简洁、可继续追问的方式讲清楚。
+## 技能目录
 
-它要求 Agent：
+### 学习与沟通
 
-- 先回答当前疑问，再按反馈逐层展开，不把每次追问都变成完整课程。
-- 必要的新概念在出现处解释，避免用更多未知术语解释已有术语。
-- 复用当前例子与已建立的知识；原回答有误时先更正。
-- 中文表达使用通行译名，保留必要技术原名和准确的代码标识。
-- 尊重“直接解释”“短一点”“不要练习”等要求，学习笔记和代码专题按需提供。
+- [learn-from-agent-conversations · 从 Agent 对话中学习](skills/learn-from-agent-conversations/SKILL.md)：当用户没有理解 Agent 已给出的解释、方案、结论或代码时，围绕具体疑问逐步讲解。必要概念在出现处说明，按反馈深入，尊重“短一点”“直接解释”“不要练习”等要求。
 
-可以直接追问：
+  使用示例：“我还是没明白这一步为什么必要，先只讲这一点。”
 
-> 刚才说的“关键路径”是什么意思？举个日常例子，不要引入一堆新词。
-
-> 我还是没明白这一步为什么必要。换一种说法，先只讲这一点。
-
-> 这里的结论成立需要什么条件？先解释我需要知道的前提。
+新技能按实际用途加入目录。当前的学习技能是这个集合的第一项；后续的收录、修改和试用方式见 [维护指南](CONTRIBUTING.md)。
 
 ## 安装
 
-本仓库遵循 [Agent Skills 开放格式](https://agentskills.io/specification)。支持该格式的客户端可以发现和加载技能；各产品的触发方式、可见会话范围与权限仍由产品本身决定。技能不会获得读取其他产品全部历史会话的能力。
+本仓库使用 [Agent Skills 开放格式](https://agentskills.io/specification)。支持该格式的客户端可以发现和加载技能；具体触发方式、可用工具与权限由客户端决定。
 
-可使用 [skills 安装工具](https://github.com/vercel-labs/skills) 选择客户端。安装工具需要 Node.js 22.20 或更新版本；技能本身只有 Markdown 指令，不依赖 Node.js、Python 或额外服务。
+使用 [skills 安装工具](https://github.com/vercel-labs/skills) 选择需要的技能与客户端。安装工具需要 Node.js 22.20 或更新版本，各技能自身的依赖以其说明为准。
 
 ```sh
-# 查看仓库中的技能
+# 查看技能目录
 npx skills@1 add wilsonwangdev/skills --list
 
-# 交互选择目标 Agent 和安装范围，项目安装请选择 Project
-npx skills@1 add wilsonwangdev/skills --skill learn-from-agent-conversations
+# 交互选择技能、目标 Agent 和安装范围
+npx skills@1 add wilsonwangdev/skills
 
 # 用户级安装，可跨项目使用
-npx skills@1 add wilsonwangdev/skills --skill learn-from-agent-conversations -g
+npx skills@1 add wilsonwangdev/skills -g
 
-# 明确选择多个目标
-npx skills@1 add wilsonwangdev/skills \
-  --skill learn-from-agent-conversations -a codex claude-code cursor
+# 只安装一项技能
+npx skills@1 add wilsonwangdev/skills --skill learn-from-agent-conversations
+
+# 明确选择多个目标客户端
+npx skills@1 add wilsonwangdev/skills -a codex claude-code cursor
 ```
 
-如果环境不支持技能发现机制，仍可读取或提供该 `SKILL.md` 作为指令参考，但不能保证自动触发。无需安装器时，也可按客户端的技能目录约定放置同名文件夹，保留其中的相对引用文件。
+每项技能的 `SKILL.md` 都说明适用场景。安装后可按客户端的方式选择技能，支持自动选择的客户端也可在请求匹配时使用它。没有技能发现机制的环境，可以将对应 `SKILL.md` 作为指令参考；手动安装文件夹时应保留其相对引用。
 
-## 更新与版本
+## 更新
 
-GitHub 是源码来源，但已安装副本不会因为远端提交而自动更新。需要主动运行更新命令，或按所用客户端的安装方式同步。
+GitHub 仓库是维护源，安装器保存的是本地副本。修改仓库后需要主动更新副本；仓库新增技能后，重新运行 `add` 选择需要的新技能。
 
 ```sh
 # 查看用户级安装
 npx skills@1 list -g
 
-# 检查并更新当前项目中的指定技能
-npx skills@1 update learn-from-agent-conversations -p
-
-# 检查并更新用户级安装的指定技能
+# 按名称更新已安装技能；这里以学习技能为例
 npx skills@1 update learn-from-agent-conversations -g
+
+# 更新当前项目中的同名技能
+npx skills@1 update learn-from-agent-conversations -p
 ```
 
-本仓库验证的安装器 1.7.4 版本中，`check` 与 `update` 进入同一更新流程，可能重装有变化的技能；不要把 `check` 当成只读预览。升级前可先在 GitHub 查看提交差异，重要环境也可安装固定标签或提交对应的来源。安装器后续行为以其实际版本为准。
+本仓库验证的安装器 1.7.4 版本中，`check` 与 `update` 进入同一更新流程，可能重装有变化的技能。升级前可在 GitHub 查看提交差异；安装器后续行为以其实际版本为准。
 
-## 目录
+## 持续维护
+
+在真实使用中发现重复问题，先判断它适合改进已有技能、新增独立技能，还是留作项目配置。调整源码后，检查格式与安装发现，再用代表性请求观察实际行为，通过提交记录保留改动原因。
+
+- [维护指南](CONTRIBUTING.md)：收录标准、目录约定、来源与许可、验证和同步流程。
+- [行为验证案例](evals/README.md)：按技能组织的试用材料。
+- [仓库维护说明](AGENTS.md)：供参与维护的 Agent 使用。
 
 ```text
-skills/
-  learn-from-agent-conversations/
-    SKILL.md
-    agents/openai.yaml
-    references/
-      code-changes.md
-      learning-notes.md
+skills/<skill-name>/
+  SKILL.md
+  agents/          # 可选：客户端显示信息
+  references/      # 可选：按需读取的资料
+  scripts/         # 可选：执行脚本
+  assets/          # 可选：输出所需素材
 evals/
 scripts/validate_skill.py
 ```
 
-`agents/openai.yaml` 仅提供部分客户端的显示信息，核心规则都在标准 `SKILL.md` 中。代码改动走读与学习材料整理属于按需读取的补充内容。
-
-## 维护与验证
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-dev.txt
-.venv/bin/python scripts/validate_skill.py
-npx skills@1 add . --list
-```
-
-修改技能时，先更新仓库文件，再检查代表性对话是否仍符合 [行为验证案例](evals/README.md)。格式检查能发现目录、元数据和引用问题，不能证明讲解质量；实际会话试用需要单独记录。
-
-通过提交记录和代码审查维护变动，再更新安装副本。仓库不保存个人学习背景、真实私有对话、账户凭据或本机路径；公开示例使用合成材料。
+按用途组织首页目录；各项技能保留独立文件夹，数量增多且确有需要时再调整分类目录。组织与维护思路参考 [mattpocock/skills](https://github.com/mattpocock/skills)。
 
 ## 许可
 
-[MIT](LICENSE)
+本库原创内容采用 [MIT](LICENSE) 许可。第三方改编内容应保留其来源、版权声明和适用许可，见维护指南。
