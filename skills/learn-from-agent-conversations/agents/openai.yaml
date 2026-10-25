@@ -1,0 +1,4 @@
+interface:
+  display_name: "从 Agent 对话中学习"
+  short_description: "围绕对话中的疑问逐步讲解，解释必要概念，避免不断增加理解负担"
+  default_prompt: "使用 $learn-from-agent-conversations 解释当前对话中用户不理解的内容，先用简洁说明回应具体疑问，必要的新概念就地解释，按反馈逐步深入。"
