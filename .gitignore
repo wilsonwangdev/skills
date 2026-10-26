@@ -2,3 +2,6 @@ __pycache__/
 *.py[cod]
 .venv/
 .DS_Store
+
+# 当次评估的输出、评分及临时材料。
+.eval-workspace/
