@@ -14,6 +14,14 @@
 
 参考：[Vite 模板](https://vite.dev/guide/)、[TypeScript 严格模式](https://www.typescriptlang.org/tsconfig/strict.html)、[索引访问](https://www.typescriptlang.org/tsconfig/noUncheckedIndexedAccess.html)、[可选属性](https://www.typescriptlang.org/tsconfig/exactOptionalPropertyTypes.html)。
 
+## 组件化与模块化
+
+在首个可运行流程中示范职责分工。挂载入口负责启动，应用入口组合路由、页面和共享能力；页面组织当前任务，交互组件维护自身展示与短暂状态。业务规则、持久化和外部请求放在各自职责内，通过语义明确的操作交互。以实际复用和独立变更为依据拆分，无须预建完整分层目录，也不用文件行数作为设计标准。
+
+先确定每份状态的唯一所有者和生命周期。局部状态靠近使用处，跨页面仍需保留的状态提升到共同所有者；只有跨层共享确有需要时才使用上下文，并按职责提供数据与操作。请求取消、过期结果和资源回收由拥有该请求的模块统一处理，保留清晰的导航与任务生命周期约定。避免把原入口整体搬进一个大 Hook，或通过传递大量内部状态、setter 与回调制造新的紧耦合。
+
+拆分后用实际修改路径和既有行为验收：页面布局、业务规则或请求实现的变化各自集中，入口无需了解具体算法；跨页面草稿、偏好、异步取消和按需加载仍按原约定工作。模板也提供这样的可运行示例，项目架构说明记录职责与依赖方向，项目级技能按任务指向同一说明。检查选择与改动相关的行为，避免为匹配文件名或目录形状编写结构测试。
+
 ## 从第一批代码启用质量规则
 
 使用当前官方推荐配置建立起点，再显式开启适合所选框架的正确性、可疑行为、类型、异步和可访问性规则。检查实际启用的插件与规则，不能把默认少量规则或“已经安装工具”称为严格基线。
@@ -44,11 +52,11 @@ CI 检出最终提交后，再执行完整格式、静态、类型、行为测�
 
 ## 多语言从界面入口接通
 
-根据受众确定起始语言、支持范围和回退语言，采用框架内置或 i18next、FormatJS 等成熟方案。界面文案集中在翻译资源，用有含义的键引用；完整句子、插值和复数交给库，日期、数字等交给区域格式化能力。代码标识、资料原文和用户生成内容不因切换界面语言而擅自翻译。
+根据受众确定起始语言、支持范围和回退语言，采用框架内置或 i18next、FormatJS 等成熟方案。界面文案放在翻译资源，用有含义的键引用。持续维护的应用按语言独立资源，注册入口只组装；规模增长后再按业务分组，配合类型或工具检查文案键的完整性。小型示例按维护需要取舍，不为拆文件额外引入远程加载。完整句子、插值和复数交给库，日期、数字等交给区域格式化能力。代码标识、资料原文和用户生成内容不因切换界面语言而擅自翻译。
 
 首个代表性界面用两种目标语言验证真实切换，包含标题、表单标签、按钮、提示、错误及无障碍名称。同步 `html.lang`，目标语言需要时处理 `dir`；明确显式选择、保存偏好与浏览器语言的优先级，并验证缺失翻译或失效偏好的回退。覆盖协议校验、服务端与第三方错误经过的真实失败路径，不仅翻译组件内文案。用稳定错误码或类别选择本地化提示，原始诊断按需要保留为辅助信息；不能把库或上游返回的任意消息直接当作界面翻译。仅预留语言字段而页面仍硬编码不算接通；完整翻译规模按产品范围推进。
 
-参考：[i18next 写法](https://www.i18next.com/principles/best-practices)、[配置与回退](https://www.i18next.com/overview/configuration-options)、[区域格式](https://www.i18next.com/translation-function/formatting)、[网页语言声明](https://www.w3.org/International/questions/qa-html-language-declarations.en)。
+参考：[i18next 写法](https://www.i18next.com/principles/best-practices)、[资源分组](https://www.i18next.com/principles/namespaces)、[配置与回退](https://www.i18next.com/overview/configuration-options)、[区域格式](https://www.i18next.com/translation-function/formatting)、[网页语言声明](https://www.w3.org/International/questions/qa-html-language-declarations.en)。
 
 ## 外观模式、主题与用户定制
 

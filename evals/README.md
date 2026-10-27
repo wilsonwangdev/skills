@@ -5,7 +5,7 @@
 ## 案例目录
 
 - [learn-from-agent-conversations](learn-from-agent-conversations.md)：概念追问、纠正原回答、缺少前文、直接解释与非学习请求。
-- [build-maintainable-app](build-maintainable-app.md)：工程基线、多语言与主题、提交检查、移动使用、导航与取消行为、元信息及任务范围。
+- [build-maintainable-app](build-maintainable-app.md)：工程基线、模块职责、多语言与主题、提交检查、移动使用、导航与取消行为、元信息及任务范围。
 
 ## 执行与评审
 
