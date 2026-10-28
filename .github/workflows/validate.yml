@@ -14,10 +14,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - uses: actions/setup-node@v4
+          python-version: "3.12"
+      - uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
         with:
-          node-version: '22'
+          install: false
       - run: python -m pip install -r requirements-dev.txt
       - run: python scripts/validate_skill.py
       - run: npx --yes skills@1.7.4 add . --list

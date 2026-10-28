@@ -30,4 +30,4 @@ npx skills add . --list
 
 发布后重新安装新增技能或更新已有副本。具体版本与行为以安装器为准，不把“已改源码”写成“已在客户端生效”。
 
-[Agent 维护入口](AGENTS.md) · [行为验证](evals/README.md)
+[Agent 维护入口](AGENTS.md) · [行为验证](evals/README.md) · [文档站](site/maintaining.md)

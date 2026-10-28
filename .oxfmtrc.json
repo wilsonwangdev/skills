@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    "skills/**",
+    "evals/**",
+    ".venv/**",
+    ".eval-workspace/**",
+    "node_modules/**",
+    "pnpm-lock.yaml",
+    "test-results/**",
+    "playwright-report/**",
+    "dist/**",
+    ".astro/**"
+  ]
+}

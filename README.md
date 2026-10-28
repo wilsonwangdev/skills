@@ -26,4 +26,4 @@ npx skills update learn-from-agent-conversations -g
 
 将名称换成需要更新的技能；新技能重新运行 `add` 选择。安装器的 `check` 可能进入更新流程，不应视为只读检查。
 
-[贡献与验证](CONTRIBUTING.md) · [行为案例](evals/README.md) · [MIT 许可](LICENSE)
+[贡献与验证](CONTRIBUTING.md) · [行为案例](evals/README.md) · [文档站维护](site/maintaining.md) · [MIT 许可](https://github.com/wilsonwangdev/skills/blob/main/LICENSE)
