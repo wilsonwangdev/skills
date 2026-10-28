@@ -5,3 +5,13 @@ __pycache__/
 
 # 当次评估的输出、评分及临时材料。
 .eval-workspace/
+
+# 文档站依赖、构建与浏览器验证产物。
+node_modules/
+dist/
+.astro/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env
+.env.*

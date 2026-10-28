@@ -1,0 +1,65 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "可独立安装、持续维护的 Agent 技能与使用说明",
+  "homepage": "https://github.com/wilsonwangdev/skills#readme",
+  "bugs": {
+    "url": "https://github.com/wilsonwangdev/skills/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilsonwangdev/skills.git"
+  },
+  "type": "module",
+  "scripts": {
+    "docs:dev": "astro dev --host 127.0.0.1",
+    "docs:build": "astro build",
+    "docs:preview": "astro preview --host 127.0.0.1",
+    "lint": "oxlint --type-aware --deny-warnings",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "typecheck": "astro sync && tsc --noEmit",
+    "test": "playwright test",
+    "check": "pnpm fmt:check && pnpm lint && pnpm typecheck && pnpm docs:build && pnpm test",
+    "check:staged": "lint-staged --hide-all --concurrent false",
+    "prepare": "husky && astro sync"
+  },
+  "devDependencies": {
+    "@astrojs/markdown-remark": "7.3.4",
+    "@astrojs/starlight": "0.42.7",
+    "@playwright/test": "1.64.1",
+    "@types/mdast": "4.0.4",
+    "@types/node": "26.6.5",
+    "astro": "7.4.2",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "mdast-util-to-string": "4.0.0",
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "remark-frontmatter": "5.0.0",
+    "remark-parse": "11.0.0",
+    "typescript": "7.0.2",
+    "unified": "11.0.5",
+    "unist-util-visit": "5.1.0",
+    "vfile": "6.0.3"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "26.12.1",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=26 <27",
+    "pnpm": ">=12 <13"
+  },
+  "packageManager": "pnpm@12.15.0",
+  "product": {
+    "displayName": "Skills",
+    "locale": "zh"
+  }
+}
