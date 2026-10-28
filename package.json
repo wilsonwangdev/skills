@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "可独立安装、持续维护的 Agent 技能与使用说明",
-  "homepage": "https://github.com/wilsonwangdev/skills#readme",
+  "homepage": "https://wilsonwangdev.github.io/skills/",
   "bugs": {
     "url": "https://github.com/wilsonwangdev/skills/issues"
   },
