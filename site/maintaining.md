@@ -25,8 +25,8 @@ pnpm docs:dev
 
 ## 发布
 
-合入后，在 GitHub 的 Pages 设置中选择 GitHub Actions，再从默认分支手动运行 **Deploy documentation**。工作流使用官方 `configure-pages` 的基路径，兼容仓库子路径与域名根路径；普通提交和 PR 只检查，不发布。
+合入 `main` 即自动构建并发布。**Deploy documentation** 在推送到默认分支时运行，同时保留手动触发，用于重发：更改 Pages 基路径、回滚内容或重新部署同一提交时使用。PR 只检查，不发布。工作流使用官方 `configure-pages` 的基路径，兼容仓库子路径与域名根路径，并由 `pages` 并发组串行部署。
 
-上线后检查首页、技能、参考资料、搜索、语言、外观和移动布局，以及 GitHub 原文编辑链接。本地或 CI 通过不代表已经发布。
+`main` 受分支保护，合入前需通过 `docs` 与 `validate` 检查，自动发布的内容因此已经过完整检查。上线后检查首页、技能、参考资料、搜索、语言、外观和移动布局，以及 GitHub 原文编辑链接。构建通过不等于站点已更新，以部署工作流的运行结果与环境 URL 为准。
 
 依据：[Astro 内容加载器](https://docs.astro.build/en/reference/content-loader-reference/)、[Markdown 处理器](https://docs.astro.build/en/guides/markdown-content/)、[Starlight 配置](https://starlight.astro.build/reference/configuration/)。
