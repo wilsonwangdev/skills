@@ -13,7 +13,7 @@ pnpm docs:dev
 
 命令、元信息与版本由 `package.json` 维护。`pnpm check` 覆盖格式、静态、类型、生产构建和真实浏览器；Python 技能结构检查由原流程承担。安装会启用 Husky：站点工程在暂存隔离下接受静态与类型检查，技能或案例变化另外执行原 Python 校验。
 
-使用 Astro、Starlight 的稳定兼容版本与官方内容加载器。项目只编写 TypeScript 工程配置，无自有 `.astro` 组件；`astro sync` 生成框架类型，TypeScript 严格检查项目源码。不为调用尚未支持 TypeScript 7 的 `astro check` 降低语言版本；今后添加 `.astro` 组件时，应先核对官方类型检查兼容性。
+使用 Astro、Starlight 的稳定兼容版本与官方内容加载器。项目只编写 TypeScript 工程配置，唯一的自有 `.astro` 组件是 `site/components/Footer.astro`：它只引用构建信息与仓库地址，不含业务逻辑。`astro sync` 生成框架类型，TypeScript 严格检查项目源码。`astro check` 尚未支持 TypeScript 7，不在检查链中；今后添加含逻辑的 `.astro` 组件时，应先核对官方类型检查兼容性。
 
 ## 内容与设计
 
@@ -26,6 +26,8 @@ pnpm docs:dev
 ## 发布
 
 合入 `main` 即自动构建并发布。**Deploy documentation** 在推送到默认分支时运行，同时保留手动触发，用于重发：更改 Pages 基路径、回滚内容或重新部署同一提交时使用。PR 只检查，不发布。工作流使用官方 `configure-pages` 的基路径，兼容仓库子路径与域名根路径，并由 `pages` 并发组串行部署。
+
+页脚显示「最近更新 + 提交短哈希」，取自 `GITHUB_SHA` 与 HEAD 的提交日期；本地构建回退为「本地构建」。它是核对部署是否生效的入口，也向访问者说明内容新鲜度，因此不要改成构建时间——每次重建都变会让人误以为内容更新。
 
 `main` 受分支保护，合入前需通过 `docs` 与 `validate` 检查，自动发布的内容因此已经过完整检查。上线后检查首页、技能、参考资料、搜索、语言、外观和移动布局，以及 GitHub 原文编辑链接。构建通过不等于站点已更新，以部署工作流的运行结果与环境 URL 为准。
 

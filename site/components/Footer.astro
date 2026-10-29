@@ -1,0 +1,26 @@
+---
+import Default from "@astrojs/starlight/components/Footer.astro";
+import { buildInfo } from "../build-info.ts";
+import { repository } from "../config.ts";
+
+const isEnglish = Astro.currentLocale === "en";
+const hasCommit = Boolean(buildInfo.commit && buildInfo.date);
+---
+
+<Default />
+
+<p class="build-info">
+  {isEnglish ? "Last updated" : "最近更新"}
+  {" "}
+  {
+    hasCommit ? (
+      <a href={`${repository}/commit/${buildInfo.commit}`}>
+        <time datetime={buildInfo.date}>{buildInfo.date}</time>
+        {" · "}
+        {buildInfo.commit}
+      </a>
+    ) : (
+      <span>{isEnglish ? "local build" : "本地构建"}</span>
+    )
+  }
+</p>
