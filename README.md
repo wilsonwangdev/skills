@@ -9,6 +9,7 @@
 - [从 Agent 对话中学习](skills/learn-from-agent-conversations/SKILL.md)：围绕没理解的内容逐步解释，补齐必要前提。
 - [构建可维护的应用](skills/build-maintainable-app/SKILL.md)：用成熟工具建立工程、设计与质量基线，再以应用实践改进规则。
 - [用 Astro 构建站点](skills/build-astro-site/SKILL.md)：静态输出与内容集合打底，每页输出完整元信息，交互按需加，上线按真实域名验收。
+- [维护可持续的测试工程](skills/maintainable-testing/SKILL.md)：审计测试膨胀，复用夹具并收敛执行入口，以行为回归验证整理效果。
 
 ## 安装
 
