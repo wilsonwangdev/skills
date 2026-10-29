@@ -1,0 +1,4 @@
+interface:
+  display_name: "用 Astro 构建站点"
+  short_description: "按统一约定搭建 Astro 站点：内容集合、页面元信息、按需交互与部署验证"
+  default_prompt: "使用 $build-astro-site 按默认约定搭建或整理这个 Astro 站点：先确定站点形态与渲染模式，用内容集合组织正文，页面输出完整元信息，交互按需加，再用实际产物和真实浏览器完成验证。"
