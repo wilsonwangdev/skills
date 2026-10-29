@@ -146,3 +146,13 @@ test("private workspace and interpreter files do not enter published pages or th
     }
   }
 });
+
+test("footer reports the commit the site was built from", async ({ page }) => {
+  await page.goto(base);
+  const info = page.locator(".build-info");
+  await expect(info).toContainText("最近更新");
+  await expect(info.locator("a")).toHaveAttribute(
+    "href",
+    /^https:\/\/github\.com\/wilsonwangdev\/skills\/commit\/[0-9a-f]{7}$/,
+  );
+});

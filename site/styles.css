@@ -8,3 +8,14 @@
   --sl-color-accent: #2dd4bf;
   --sl-color-accent-high: #ccfbf1;
 }
+
+.build-info {
+  margin-block-start: 0.75rem;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-3);
+}
+
+.build-info a {
+  color: inherit;
+  text-underline-offset: 0.15em;
+}

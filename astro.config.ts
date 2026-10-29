@@ -20,6 +20,7 @@ export default defineConfig({
       },
       social: [{ icon: "github", label: "GitHub", href: repository }],
       customCss: ["./site/styles.css"],
+      components: { Footer: "./site/components/Footer.astro" },
       editLink: { baseUrl: `${repository}/edit/main/` },
       sidebar: [
         { label: "技能与安装", link: "/", translations: { en: "Skills and installation" } },
