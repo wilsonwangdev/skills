@@ -6,6 +6,7 @@
 
 - [learn-from-agent-conversations](learn-from-agent-conversations.md)：概念追问、纠正原回答、缺少前文、直接解释与非学习请求。
 - [build-maintainable-app](build-maintainable-app.md)：工程基线、模块职责与依赖检查、组件选型与分发、设计验收、工具迁移与缓存、多语言与主题、提交检查、移动使用、导航与取消行为、元信息及任务范围。
+- [build-astro-site](build-astro-site.md)：内容集合与站点身份、页面元信息与订阅、交互岛与转场取舍、上线后按真实域名验收、局部修改不扩大范围。
 
 ## 执行与评审
 
