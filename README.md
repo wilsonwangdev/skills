@@ -10,6 +10,7 @@
 - [构建可维护的应用](skills/build-maintainable-app/SKILL.md)：用成熟工具建立工程、设计与质量基线，再以应用实践改进规则。
 - [用 Astro 构建站点](skills/build-astro-site/SKILL.md)：静态输出与内容集合打底，每页输出完整元信息，交互按需加，上线按真实域名验收。
 - [维护可持续的测试工程](skills/maintainable-testing/SKILL.md)：审计测试膨胀，复用夹具并收敛执行入口，以行为回归验证整理效果。
+- [个人编码与审查风格](skills/personal-code-review-style/SKILL.md)：以实际消费者、迁移成本和行为证据控制改动范围，保留必要的接口与保障。
 
 ## 安装
 
