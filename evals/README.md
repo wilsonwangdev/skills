@@ -8,6 +8,7 @@
 - [build-maintainable-app](build-maintainable-app.md)：工程基线、模块职责与依赖检查、组件选型与分发、设计验收、工具迁移与缓存、多语言与主题、提交检查、移动使用、导航与取消行为、元信息及任务范围。
 - [build-astro-site](build-astro-site.md)：内容集合与站点身份、页面元信息与订阅、交互岛与转场取舍、上线后按真实域名验收、局部修改不扩大范围。
 - [maintainable-testing](maintainable-testing.md)：测试发现与环境分层、重复夹具、结构断言与行为保障、成熟运行器及效果边界。
+- [personal-code-review-style](personal-code-review-style.md)：局部适配与必要接口迁移、只读审查、复用边界、行为回归及稳定文档。
 
 ## 执行与评审
 
